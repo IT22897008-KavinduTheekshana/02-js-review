@@ -157,6 +157,18 @@ console.log(title, author, genres);
 // const primaryGenres = genres[0];
 // const secondaryGenres = genres[1];
 
-const [primaryGenres, secondaryGenres] = genres;
+const [primaryGenres, secondaryGenres, ...otherGenres] = genres;
 
-console.log(primaryGenres, secondaryGenres);
+console.log(primaryGenres, secondaryGenres, otherGenres);
+
+const newGenres = [...genres, "epic fantasy"];
+newGenres;
+
+const updatedBook = {
+  ...book,
+  // adding new property
+  moviePublicationDate: "2022-01-01",
+  // owerriding property
+  pages: 300,
+};
+updatedBook;
