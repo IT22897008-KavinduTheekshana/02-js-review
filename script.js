@@ -143,6 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
 // Destructuring
 
 const book = getBook(2);
@@ -172,3 +173,90 @@ const updatedBook = {
   pages: 300,
 };
 updatedBook;
+
+const summary = `${title} is a book`;
+summary;
+
+const pagesRange = pages > 500 ? "over 500" : "less than 500";
+pagesRange;
+
+function getYear(str) {
+  return str.split("-")[0];
+}
+
+console.log(getYear(publicationDate));
+
+const getyear = (str) => str.split("-")[0];
+
+function getTotalReviewCount(book) {
+  const goodread = book.reviews?.goodreads?.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0; // optional chaining;
+  return goodread + librarything;
+}
+
+console.log(getTotalReviewCount(book));
+
+*/
+
+const books = getBooks();
+books;
+
+const x = [1, 2, 3, 4, 5].map((el) => el * 2);
+
+console.log(x);
+
+const titles = books.map((book) => book.title);
+
+console.log(titles);
+
+const esentialData = books.map((book) => ({
+  title: book.title,
+  author: book.author,
+}));
+
+console.log(esentialData);
+
+const longBooks = books
+  .filter((book) => book.pages > 500)
+  .filter((book) => book.hasMovieAdaptation);
+longBooks;
+
+const adventureBooks = books
+  .filter((books) => books.genres.includes("adventure"))
+  .map((book) => book.title);
+
+adventureBooks;
+
+const pageAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+pageAllBooks;
+
+const arr = [3, 5, 2, 7, 8, 4, 6];
+
+const sotedArr = arr.slice().sort((a, b) => a - b);
+sotedArr;
+arr;
+
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+
+//1)add book object to array
+
+const newBook = {
+  id: 6,
+  title: "The Hobbit",
+  publicationDate: "1937-09-21",
+};
+
+const booksAfterAdd = [...books, newBook];
+booksAfterAdd;
+
+//2) remove book object from array
+
+const booksAfterRemove = books.filter((books) => books.id !== 2);
+booksAfterRemove;
+
+//3) update book object in array
+
+const updatedBooks = books.map((books) =>
+  books.id === 1 ? { ...books, pages: 560 } : books
+);
+updatedBooks;
