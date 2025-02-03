@@ -197,7 +197,7 @@ function getTotalReviewCount(book) {
 console.log(getTotalReviewCount(book));
 
 */
-
+/*
 const books = getBooks();
 books;
 
@@ -260,3 +260,16 @@ const updatedBooks = books.map((books) =>
   books.id === 1 ? { ...books, pages: 560 } : books
 );
 updatedBooks;
+*/
+
+fetch("'https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
+async function fetchTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+}
+
+fetchTodos();
